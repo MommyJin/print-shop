@@ -1,5 +1,6 @@
 import React from 'react';
-import { ShoppingCart, Menu } from 'lucide-react';
+import Link from 'next/link';
+import { ShoppingCart } from 'lucide-react';
 
 const Header = () => (
   <header className="bg-white shadow-sm">
@@ -68,4 +69,27 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default function HomePage() {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <header className="bg-white shadow-sm">
+          <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <Link href="/" className="font-bold text-xl">
+              Print Shop
+            </Link>
+            
+            <div className="flex items-center space-x-4">
+              <Link href="/products" className="text-gray-600 hover:text-gray-900">
+                Products
+              </Link>
+              <button className="p-2 hover:bg-gray-100 rounded-full">
+                <ShoppingCart className="w-6 h-6" />
+              </button>
+            </div>
+          </nav>
+        </header>
+        
+        {/* Rest of your code stays the same */}
+      </div>
+    );
+  }
